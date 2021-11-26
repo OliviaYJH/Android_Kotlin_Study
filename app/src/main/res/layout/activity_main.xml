@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,8 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/banner"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -27,7 +29,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <TableLayout
+        android:id="@+id/friendsList"
+        app:layout_constraintTop_toBottomOf="@+id/banner"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp">
@@ -37,38 +43,43 @@
                 android:id="@+id/person1"
                 android:layout_width="90dp"
                 android:layout_height="80dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/man" />
 
             <ImageView
                 android:id="@+id/person2"
                 android:layout_width="90dp"
                 android:layout_height="80dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/man" />
 
             <ImageView
                 android:id="@+id/person3"
                 android:layout_width="90dp"
                 android:layout_height="80dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/man" />
 
             <ImageView
                 android:id="@+id/person4"
                 android:layout_width="90dp"
                 android:layout_height="80dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/man" />
 
             <ImageView
                 android:id="@+id/person5"
                 android:layout_width="90dp"
                 android:layout_height="80dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/man" />
         </TableRow>
     </TableLayout>
 
     <LinearLayout
+        android:id="@+id/article_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/friendsList"
+        app:layout_constraintBottom_toTopOf="@+id/tabList">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -82,7 +93,7 @@
                 android:layout_marginLeft="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                tools:srcCompat="@drawable/man" />
 
             <TextView
                 android:id="@+id/myID"
@@ -109,15 +120,17 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/article"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_width="wrap_content"
+                android:layout_height="400dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
                 app:srcCompat="@drawable/london" />
 
             <ImageView
@@ -126,85 +139,107 @@
                 android:layout_height="30dp"
                 android:layout_alignBottom="@+id/image"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="23dp"
-                android:layout_marginBottom="50dp"
-                app:srcCompat="@drawable/noSound" />
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="72dp"
+                app:srcCompat="@drawable/soundoff" />
         </RelativeLayout>
 
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/tabList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="51dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/firstFrame"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/secondFrame"
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:visibility="visible"
                 app:srcCompat="@drawable/homepage" />
 
         </FrameLayout>
+
         <FrameLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/secondFrame"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:layout_height="wrap_content">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/thirdFrame"
+            app:layout_constraintStart_toEndOf="@+id/firstFrame">
+
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:visibility="visible"
                 app:srcCompat="@drawable/magnifier" />
         </FrameLayout>
+
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1">
+            android:id="@+id/thirdFrame"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fourthFrame"
+            app:layout_constraintStart_toEndOf="@+id/secondFrame">
 
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="50dp"
                 android:layout_marginRight="10dp"
                 android:visibility="visible"
                 app:srcCompat="@drawable/movie" />
 
 
         </FrameLayout>
+
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1">
+            android:id="@+id/fourthFrame"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/myPage"
+            app:layout_constraintStart_toEndOf="@+id/thirdFrame">
 
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:visibility="visible"
                 app:srcCompat="@drawable/bag" />
         </FrameLayout>
 
+
+
         <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginRight="10dp"
+            android:id="@+id/myPage"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:layout_weight="0"
-            android:visibility="visible"
-            app:srcCompat="@mipmap/ic_launcher"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:srcCompat="@drawable/man" />
 
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
