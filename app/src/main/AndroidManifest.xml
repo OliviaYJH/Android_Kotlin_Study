@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round_img"
         android:supportsRtl="true"
         android:theme="@style/Theme.UseLayouts">
+
+        <activity android:name=".SecondActivity"></activity>
         <activity
-            android:name=".LifeCycle"
+            android:name=".ClickToNextActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,15 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".test"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".MainActivity"
+            android:name=".LifeCycle"
             android:exported="false">
 
         </activity>
+        <activity
+            android:name=".test"
+            android:exported="false"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>
