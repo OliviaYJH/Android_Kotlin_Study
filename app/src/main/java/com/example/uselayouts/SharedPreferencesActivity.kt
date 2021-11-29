@@ -4,16 +4,24 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.uselayouts.databinding.ActivitySharedPreferencesBinding
+import java.util.*
+import kotlin.concurrent.timer
 
 class SharedPreferencesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySharedPreferencesBinding
     private lateinit var sharedPreferences: SharedPreferences // 인스턴스 생성
 
+    private var time = 0
+    private var timerTask: Timer? = null // Nullable로 선언 방법
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        startTimer()
 
         binding = ActivitySharedPreferencesBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,6 +46,26 @@ class SharedPreferencesActivity : AppCompatActivity() {
 
             // 데이터 저장이 완료되면 인텐트를 통해 SharedPreferencesActivity에서 SecondSharedPreferencesActivity로 전환하기
             startActivity(Intent(this, SecondSharedPreferencesActivity::class.java))
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun startTimer(){
+        timerTask = timer(period = 10){
+            time++
+
+            val sec = time/100
+            val milli = time % 100
+
+            runOnUiThread{
+                binding.secText.text = "$sec"
+                binding.milliText.text = "$milli"
+
+            }
         }
     }
 }
