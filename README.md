@@ -1,4 +1,4 @@
-# RC_AOS
+# Android_Kotlin_Study
 
 #### [Manifest](https://working-hippodraco-f05.notion.site/Manifest-866a9662d7ba4463b1033d08c98a2df2)
 #### [Palette](https://working-hippodraco-f05.notion.site/Palette-f566c64be27049fbab796cd28e572e27)
