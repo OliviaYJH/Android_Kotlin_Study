@@ -8,3 +8,4 @@
 #### [Data Storage](https://working-hippodraco-f05.notion.site/Data-Storage-261e0da1efea4a90b1fd46e6845d7437)
 #### [정보 전달](https://working-hippodraco-f05.notion.site/8ff18899f8794b66a4f06ae52b6130ba)
 #### [네트워크](https://working-hippodraco-f05.notion.site/7f36e7013caf4eb3a4692a8baba8992d)
+#### [MVC 패턴](https://www.notion.so/MVC-d0836ecf7a5b4feca0201a66304d562e)
